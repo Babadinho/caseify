@@ -1,14 +1,7 @@
 chrome.contextMenus.removeAll(() => {
   chrome.contextMenus.create({
-    id: 'uppercase',
-    title: 'Uppercase',
-    contexts: ['editable'],
-    documentUrlPatterns: ['http://*/*', 'https://*/*'],
-  });
-
-  chrome.contextMenus.create({
     id: 'lowercase',
-    title: 'Lowercase',
+    title: 'lowercase',
     contexts: ['editable'],
     documentUrlPatterns: ['http://*/*', 'https://*/*'],
   });
@@ -16,6 +9,13 @@ chrome.contextMenus.removeAll(() => {
   chrome.contextMenus.create({
     id: 'capitalize',
     title: 'Capitalize',
+    contexts: ['editable'],
+    documentUrlPatterns: ['http://*/*', 'https://*/*'],
+  });
+
+  chrome.contextMenus.create({
+    id: 'uppercase',
+    title: 'UPPERCASE',
     contexts: ['editable'],
     documentUrlPatterns: ['http://*/*', 'https://*/*'],
   });
@@ -34,8 +34,6 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
         target: { tabId: tab.id || -1 },
         func: (selectedText: string, action: string) => {
           switch (action) {
-            case 'uppercase':
-              return selectedText.toUpperCase();
             case 'lowercase':
               return selectedText.toLowerCase();
             case 'capitalize':
@@ -44,6 +42,8 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
                 .split(' ')
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                 .join(' ');
+            case 'uppercase':
+              return selectedText.toUpperCase();
             default:
               return selectedText;
           }
