@@ -17,9 +17,6 @@
       "all_frames": true
     }
   ],
-  "action": {
-    "default_popup": "popup.html"
-  },
   "permissions": [
     "contextMenus",
     "activeTab",
