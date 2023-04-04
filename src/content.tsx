@@ -33,10 +33,27 @@ const App = () => {
 
   return (
     <div>
-      <p>Selected text: {selectedText}</p>
-      <button onClick={() => handleClick('uppercase')}>Uppercase</button>
-      <button onClick={() => handleClick('lowercase')}>Lowercase</button>
-      <button onClick={() => handleClick('capitalize')}>Capitalize</button>
+      <h1>Caseify</h1>
+      {/* <p>
+        Caseify allows you to convert selected text to uppercase, lowercase, or
+        capitalize it using context menus.
+      </p> */}
+      <p>
+        To use Caseify, simply select the text you want to modify, right-click,
+        and choose the desired option from the context menu.
+      </p>
+      <p>
+        For more information and support, please visit the{' '}
+        <a
+          href='https://github.com/Babadinho/caseify'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Caseify GitHub page
+        </a>
+        .
+      </p>
+      <hr />
     </div>
   );
 };
