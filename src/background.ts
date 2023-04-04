@@ -3,23 +3,31 @@ chrome.contextMenus.removeAll(() => {
     id: 'uppercase',
     title: 'Uppercase',
     contexts: ['editable'],
+    documentUrlPatterns: ['http://*/*', 'https://*/*'],
   });
 
   chrome.contextMenus.create({
     id: 'lowercase',
     title: 'Lowercase',
     contexts: ['editable'],
+    documentUrlPatterns: ['http://*/*', 'https://*/*'],
   });
 
   chrome.contextMenus.create({
     id: 'capitalize',
     title: 'Capitalize',
     contexts: ['editable'],
+    documentUrlPatterns: ['http://*/*', 'https://*/*'],
   });
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-  if (info.selectionText && tab && tab.id !== undefined) {
+  if (
+    tab &&
+    tab.url &&
+    (tab.url.startsWith('http://') || tab.url.startsWith('https://')) &&
+    info.selectionText
+  ) {
     const action = info.menuItemId.toString();
     chrome.scripting.executeScript(
       {
@@ -36,7 +44,6 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
                 .split(' ')
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                 .join(' ');
-
             default:
               return selectedText;
           }
