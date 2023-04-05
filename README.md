@@ -12,8 +12,13 @@ Caseify is a chrome extension that allows you to convert selected text in an inp
 ### Getting Started
 
 - `npm install` to install all dependencies
-- `npm run dev` to start server
 
-### Build command
+### Run Build command
 
 - `npm run build`
+
+### Load into chrome
+
+- Open Chrome and go to chrome://extensions
+- Enable "Developer mode" in the top-right corner
+- Click "Load unpacked" and select the extension's folder
