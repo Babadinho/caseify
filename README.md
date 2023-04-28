@@ -9,6 +9,10 @@ Caseify is a chrome extension that allows you to convert selected text in an inp
 
 ![Caseify Image](https://raw.githubusercontent.com/babadinho/caseify/main/src/images/caseify.jpg)
 
+## Install Extension
+
+https://chrome.google.com/webstore/detail/caseify/hblomklaidkmanccinkcedinogkjklmb
+
 ### Getting Started
 
 - `npm install` to install all dependencies
